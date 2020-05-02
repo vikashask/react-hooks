@@ -10,7 +10,9 @@ class ThemeContextProvider extends Component {
   };
   render() {
     return (
-      <ThemeContex.Provider value={{ ...this.state }}></ThemeContex.Provider>
+      <ThemeContex.Provider value={{ ...this.state }}>
+        {this.props.children}
+      </ThemeContex.Provider>
     );
   }
 }
