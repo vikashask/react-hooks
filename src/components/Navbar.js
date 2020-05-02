@@ -5,7 +5,6 @@ class Navbar extends Component {
 
   render() {
     console.log(this.context);
-
     return (
       <ThemeContex.Consumer>
         {(context) => {
