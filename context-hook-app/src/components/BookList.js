@@ -1,15 +1,12 @@
-import React, { Component } from "react";
+import React, { Component,useContext } from "react";
 import { ThemeContex } from "../contexts/ThemeContext";
 
-class BookList extends Component {
-  static contextType = ThemeContex;
+const BookList = () => {
+  const { isLightTheme, light, dark } =   useContext(ThemeContex);
+  const theme = isLightTheme ? light : dark;
 
-  render() {
-    const { isLightTheme, light, dark } = this.context;
-    const theme = isLightTheme ? light : dark;
-
-    return (
-      <div
+  return ( 
+    <div
         className="book-list"
         style={{ background: theme.bg, color: theme.syntax }}
       >
@@ -19,8 +16,7 @@ class BookList extends Component {
           <li style={{ background: theme.ui }}>React</li>
         </ul>
       </div>
-    );
-  }
+   );
 }
-
+ 
 export default BookList;
