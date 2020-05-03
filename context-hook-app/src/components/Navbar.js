@@ -1,17 +1,13 @@
-import React, { Component } from "react";
+import React, {useContext } from "react";
 import { ThemeContex } from "../contexts/ThemeContext";
-class Navbar extends Component {
-  static contextType = ThemeContex;
+import { AuthContext } from "../contexts/AuthContext";
 
-  render() {
-    console.log(this.context);
-    return (
-      <ThemeContex.Consumer>
-        {(context) => {
-          const { isLightTheme, light, dark } = this.context;
-          const theme = isLightTheme ? light : dark;
-          return (
-            <nav style={{ background: theme.ui, color: theme.syntax }}>
+const NavBar = () => {
+  const { isLightTheme, light, dark } =  useContext(ThemeContex);
+  const { isAuthenticated,toggleAuth } =  useContext(AuthContext);
+  const theme = isLightTheme ? light : dark;
+  return ( 
+    <nav style={{ background: theme.ui, color: theme.syntax }}>
               <h1>React App</h1>
               <ul>
                 <li>Home</li>
@@ -19,11 +15,7 @@ class Navbar extends Component {
                 <li>Contact</li>
               </ul>
             </nav>
-          );
-        }}
-      </ThemeContex.Consumer>
-    );
-  }
+   );
 }
-
-export default Navbar;
+ 
+export default NavBar;
