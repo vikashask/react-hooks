@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import NewSongForm from "./NewSongForm";
 import {v1 as uuidv1} from 'uuid';
 const SongList = () => {
@@ -9,10 +9,15 @@ const SongList = () => {
   ]);
 
   const addSong = (title) => {
-    // setSongs([...songs, { title: "new song", id: 4 }]);
     setSongs([...songs, { title: title, id: uuidv1() }]);
     console.log(songs);
   };
+
+  // this useeffect run only when songs chanes
+  useEffect(()=>{
+    console.log('use effect run ',songs);
+  },[songs])
+
   return (
     <div className="song-list">
       <ul>

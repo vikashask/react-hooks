@@ -5,7 +5,7 @@ const NewSongForm = ({addSong}) => {
   const handelSubmit = (e) => {
     e.preventDefault();
     addSong(title);
-    console.log(title);
+    setTitle('')
   };
   return (
     <form onSubmit={handelSubmit}>
